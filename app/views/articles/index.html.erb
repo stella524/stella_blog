@@ -46,18 +46,22 @@
 <!--ここまでジャンボトロン-->
 
 <!--ここから記事部分-->
-
-<div class="card" style="width: 18rem;">
-  <% @articles.each do |article| %>
-  <%= image_tag(article.image.to_s,:size =>'285x200') %>
-  <div class="card-body">
-    <h5 class="card-title"><%= article.title %></h5>
-    <p class="card-text"><%= article.created_at %></p>
-    <a href="#" class="btn btn-primary">みる</a>
+<div class="container">
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="card col-md-4" style="width: 18rem;">
+        <div class="card img-thumbnail">
+          <%= image_tag(article.image.to_s,:class =>"card-img-top") %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= article.title %></h5>
+          <p class="card-text"><%= article.created_at %></p>
+          <a href="#" class="btn btn-primary">みる</a>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
-
 <!--ここまで記事部分-->
 
 <!--ページネーション実装とgithub連携する-->
