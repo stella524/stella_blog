@@ -16,9 +16,10 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.create(article_params)
     if @article.save
-      redirect_to root_path, message:"Article was created,successfully"
+      redirect_to root_path, flash: {notice: "Article was created,successfully"}
     else
-      render "new", alert:"Article was not created, cause some of issues"
+      flash.now[:alert] = "Article couldn't be created, cause some of issues"
+      render "new"
     end
   end
 
@@ -29,17 +30,18 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.update_attributes(article_params)
     if @article.save
-      redirect_to root_path,message:"Article has edited,successfully" 
+      redirect_to root_path, flash: {notice: "Article has edited,successfully"}
     else
-      render "edit", alert:"投稿の編集に失敗しました"
+      flash.now[:alert] = "Article couldn't be edited"
+      render "edit"
     end
   end
 
   def destroy
     if @article.destroy
-      redirect_to root_path, message:"投稿を削除しました"
+      redirect_to root_path, flash: {notice:"Article has deleted,successfully"}
     else
-      redirect_to root_path, alert:"投稿を削除できませんでした"
+      redirect_to root_path, flash: {alert:"Article couldn't be deleted"}
     end
   end
   

@@ -14,3 +14,9 @@
 .pd-left3{
   padding-left: 3px;
 }
+
+.article-img{
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
