@@ -4,7 +4,6 @@
     <title>StellaBlog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -53,7 +52,8 @@
       <div class="jumbotron jumbotron-fluid">
         <h1 class="display-4 jumbotron-h1 text-secondary text-center">Stella blog</h1>
         <p class="lead text-secondary text-center">ポートフォリオ兼ブログ</p>
-      </div><!-- /.jumbotron -->
+      </div>
+    <!--ここまでジャンボトロン-->
     </div>
     <% if flash[:notice] %>
       <div class="alert alert-success">

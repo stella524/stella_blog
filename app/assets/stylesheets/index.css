@@ -16,7 +16,6 @@
 }
 
 .article-img{
-  width: 250px;
-  height: 250px;
+  max-height: 300px;
   object-fit: cover;
 }

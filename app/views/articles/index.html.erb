@@ -48,20 +48,59 @@
 <!--ここから記事部分-->
 <div class="container">
   <div class="row">
-    <% @articles.each do |article| %>
-      <div class="card col-md-4">
-        <div class="img-thumbnail mt-1">
-          <%= image_tag(article.image.to_s,:class =>"card-img-top article-img") %>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><%= article.title %></h5>
-          <p class="card-text"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
-          <%= link_to "みる",article_path(article), :class =>"btn btn-primary" %>
-        </div>
+    <div class="col-md-3">
+      <div class="sidebar-nav affix" role="complementary">
+        <ul class="nav">
+          <li><a href="#">一番上</a></li>
+          <li><a href="#bottom">一番下</a></li>
+        </ul>
       </div>
-    <% end %>
+    </div>
+    <div class="col-md-7">
+      <% @articles.each do |article| %>
+        <!--<div class="row">-->
+        <!--  <div class="card col-md-4">-->
+        <!--    <div class="img-thumbnail mt-1">-->
+        <!--      <%= image_tag(article.image.to_s,:class =>"card-img-top article-img") %>-->
+        <!--    </div>-->
+        <!--    <div class="card-body">-->
+        <!--      <h5 class="card-title"><%= article.title %></h5>-->
+        <!--      <p class="card-text"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>-->
+        <!--      <%= link_to "みる",article_path(article), :class =>"btn btn-primary" %>-->
+        <!--    </div>-->
+        <!--  </div>-->
+        <!--</div>-->
+        <div class="row">
+          <div class="card col-md-12">
+            <div class="card-group">
+              <div class="card">
+                <div class="img-thumbnail mt-1">
+                  <%= image_tag(article.image.to_s,:class =>"card-img-top article-img") %>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title"><%= article.title %></h4>
+                  <p class="card-text"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+                  <%= link_to "みる",article_path(article), :class =>"btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-2">
+      <div class="sidebar-nav affix" role="complementary">
+        <ul class="nav">
+          <li><a href="#">一番上</a></li>
+          <li><a href="#bottom">一番下</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="mt-5">
+    <%= paginate @articles %>
   </div>
 </div>
 <!--ここまで記事部分-->
 
-<!--ページネーション実装とgithub連携する-->
+

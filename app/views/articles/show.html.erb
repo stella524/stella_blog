@@ -1,4 +1,24 @@
-<div class="container">
-  <%= @article.title %>
-  <%= @article.body %>
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-3">
+      <div class="sidebar-nav affix" role="complementary">
+        <ul class="nav">
+          <li><a href="#">一番上</a></li>
+          <li><a href="#bottom">一番下</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <h1 class="display-4 text-center"><%= @article.title %></h1>
+      <p class="lead"><%= @article.body %></p>
+    </div>
+    <div class="col-md-2">
+      <div class="sidebar-nav affix" role="complementary">
+        <ul class="nav">
+          <li><a href="#">一番上</a></li>
+          <li><a href="#bottom">一番下</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
