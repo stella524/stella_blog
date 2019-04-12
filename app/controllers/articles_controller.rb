@@ -28,8 +28,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.update_attributes(article_params)
-    if @article.save
+     
+    if @article.update(article_params)
       redirect_to root_path, flash: {notice: "Article has edited,successfully"}
     else
       flash.now[:alert] = "Article couldn't be edited"

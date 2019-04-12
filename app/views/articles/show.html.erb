@@ -1,24 +1,27 @@
 <div class="container-fluid">
   <div class="row">
      <div class="col-md-3">
-      <div class="sidebar-nav affix" role="complementary">
-        <ul class="nav">
-          <li><a href="#">一番上</a></li>
-          <li><a href="#bottom">一番下</a></li>
-        </ul>
-      </div>
+       <nav class="nav flex-column d-none d-md-block">
+        <a class="nav-link active" href="#">アクティブ</a>
+        <a class="nav-link" href="#">リンク1</a>
+        <a class="nav-link" href="#">リンク2</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">無効</a>
+      </nav>
     </div>
-    <div class="col-md-7">
-      <h1 class="display-4 text-center"><%= @article.title %></h1>
-      <p class="lead"><%= @article.body %></p>
+    <div class="col-md-7 bg-white">
+      <h1 class="display-4 text-center text-secondary mt-5"><%= @article.title %></h1>
+      <div class="mt-5">
+        <%= image_tag(@article.image.to_s,:style => "max-width: 100%;") %>
+      </div>
+      <p class="lead mt-5"><%= simple_format @article.body %></p>
+      <div class="mt-5 mb-5">
+        <%= link_to "編集", edit_article_path,:class => "btn btn-primary" %>
+        <%= link_to '削除', article_path(@article), :class => "btn btn-danger", data: { confirm: 'Are you sure?' }, :method => :delete %>
+      </div>
     </div>
     <div class="col-md-2">
-      <div class="sidebar-nav affix" role="complementary">
-        <ul class="nav">
-          <li><a href="#">一番上</a></li>
-          <li><a href="#bottom">一番下</a></li>
-        </ul>
-      </div>
+      <nav class="nav flex-column d-none d-md-block">
+      </nav>
     </div>
   </div>
 </div>
