@@ -1,27 +1,32 @@
 <!--ここから記事部分-->
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-3">
       <nav class="nav flex-column d-none d-md-block">
-        <a class="nav-link active" href="#">アクティブ</a>
-        <a class="nav-link" href="#">リンク1</a>
-        <a class="nav-link" href="#">リンク2</a>
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">無効</a>
+        <a class="nav-item" href="#">
+          <img src="assets/rubyonrails.png" class="img-fluid border border-secondary mb-1">
+        </a>
+        <a class="nav-item" href="#">
+          <img src="assets/camera.png" class="img-fluid border border-secondary mb-1">
+        </a>
+        <a class="nav-item" href="#">
+          <img src="assets/game.png" class="img-fluid border border-secondary mb-1">
+        </a>
       </nav>
     </div>
     <div class="col-md-7">
       <% @articles.each do |article| %>
         <div class="row">
-          <div class="card col-md-12">
-            <div class="card-group">
+          <div class="col-md-12">
+            <div class="card-group mb-2">
               <div class="card">
-                <div class="img-thumbnail mt-1">
+                <div class="img-thumbnail border-0">
                   <%= image_tag(article.image.to_s,:class =>"card-img-top article-img") %>
                 </div>
                 <div class="card-body">
                   <h4 class="card-title"><%= article.title %></h4>
                   <p class="card-text"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
-                  <%= link_to "みる",article_path(article), :class =>"btn btn-primary" %>
+                  <%= link_to "see more...",article_path(article), :class =>"btn btn-primary" %>
                 </div>
               </div>
             </div>

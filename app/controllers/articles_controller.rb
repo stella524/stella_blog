@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   
   before_action :find_article, only:[:show,:edit,:update,:destroy]
+  before_action :sign_in_and_admin_required, only:[:edit,:update,:destroy,:new,:create]
   
   def index
     @articles = Article.all.order(created_at: :desc).page(params[:page]).per(9)
@@ -54,4 +55,6 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title,:body,:image)
   end
+  
+ 
 end

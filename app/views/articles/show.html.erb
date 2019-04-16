@@ -14,10 +14,12 @@
         <%= image_tag(@article.image.to_s,:style => "max-width: 100%;") %>
       </div>
       <p class="lead mt-5"><%= simple_format @article.body %></p>
-      <div class="mt-5 mb-5">
-        <%= link_to "編集", edit_article_path,:class => "btn btn-primary" %>
-        <%= link_to '削除', article_path(@article), :class => "btn btn-danger", data: { confirm: 'Are you sure?' }, :method => :delete %>
-      </div>
+      <% if user_signed_in? && current_user.admin == true %>
+        <div class="mt-5 mb-5">
+          <%= link_to "編集", edit_article_path,:class => "btn btn-primary" %>
+          <%= link_to '削除', article_path(@article), :class => "btn btn-danger", data: { confirm: 'Are you sure?' }, :method => :delete %>
+        </div>
+      <% end %>
     </div>
     <div class="col-md-2">
       <nav class="nav flex-column d-none d-md-block">
