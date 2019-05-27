@@ -1,49 +1,35 @@
-<!--ここから記事部分-->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-3">
-      <nav class="nav flex-column d-none d-md-block">
-        <a class="nav-item" href="#">
-          <img src="assets/rubyonrails.png" class="img-fluid border border-secondary mb-1">
-        </a>
-        <a class="nav-item" href="#">
-          <img src="assets/camera.png" class="img-fluid border border-secondary mb-1">
-        </a>
-        <a class="nav-item" href="#">
-          <img src="assets/game.png" class="img-fluid border border-secondary mb-1">
-        </a>
-      </nav>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag("SDIM1.jpg",  :class => "img-fluid") %>
+      <div class="carousel-caption">
+        ...
+      </div>
     </div>
-    <div class="col-md-7">
-      <% @articles.each do |article| %>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card-group mb-2">
-              <div class="card">
-                <div class="img-thumbnail border-0">
-                  <%= image_tag(article.image.to_s,:class =>"card-img-top article-img") %>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title"><%= article.title %></h4>
-                  <p class="card-text"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
-                  <%= link_to "see more...",article_path(article), :class =>"btn btn-primary" %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
+    <div class="item">
+      <%= image_tag("SDIM2.jpg", :class => "img-fluid") %>
+      <div class="carousel-caption">
+        ...
+      </div>
     </div>
-    <div class="col-md-2">
-      <nav class="nav flex-column d-none d-md-block">
-        
-      </nav>
-    </div>
+    ...
   </div>
-  <div class="mt-5">
-    <%= paginate @articles %>
-  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-<!--ここまで記事部分-->
-
-

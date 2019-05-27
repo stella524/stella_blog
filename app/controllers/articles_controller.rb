@@ -46,6 +46,14 @@ class ArticlesController < ApplicationController
     end
   end
   
+  def search
+    @search = Article.where(genre: params[:search]).order(created_at: :DESC).page(params[:page]).per(9)
+  end
+  
+  def blog
+    @articles = Article.all.order(created_at: :desc).page(params[:page]).per(9)
+  end
+  
   private
   
   def find_article
@@ -53,7 +61,7 @@ class ArticlesController < ApplicationController
   end
   
   def article_params
-    params.require(:article).permit(:title,:body,:image)
+    params.require(:article).permit(:title,:body,:image,:genre)
   end
   
  

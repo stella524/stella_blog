@@ -1,0 +1,49 @@
+<!--ここから記事部分-->
+<div class="container-fluid mt-5 pd-top-88px">
+  <div class="row">
+    <div class="col-md-3">
+      <nav class="navbar flex-column d-none d-md-block sticky-top pd-top-88px">
+        <%= link_to search_path(:search => "rubyonrails"), class: "nav-item" do %>
+          <%= image_tag "rubyonrails.png", class: "img-fluid border border-secondary mb-1" %>
+        <% end %>
+        <%= link_to search_path(:search => "camera"), class: "nav-item" do %>
+          <%= image_tag "camera.png", class: "img-fluid border border-secondary mb-1" %>
+        <% end %>
+        <%= link_to search_path(:search => "game"), class: "nav-item" do %>
+          <%= image_tag "game.png", class: "img-fluid border border-secondary mb-1" %>
+        <% end %>
+        <%= link_to search_path(:search => "f1"), class: "nav-item" do %>
+          <%= image_tag "f1.png", class: "img-fluid border border-secondary mb-1" %>
+        <% end %>
+      </nav>
+    </div>
+    <div class="col-md-7 pd-top-88px">
+      <% @articles.each do |article| %>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card-group mb-2">
+              <div class="card">
+                <div class="img-thumbnail border-0">
+                  <%= image_tag(article.image.to_s,:class =>"card-img-top article-img") %>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title"><%= article.title %></h4>
+                  <p class="card-text"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+                  <%= link_to "see more...",article_path(article), :class =>"btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="mt-5">
+        <%= paginate @articles %>
+      </div>
+    </div>
+    <div class="col-md-2 pd-top-88px">
+      <nav class="nav flex-column d-none d-md-block">
+        
+      </nav>
+    </div>
+  </div>
+</div>
