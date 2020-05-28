@@ -39,7 +39,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 gem 'devise'
 
 group :development, :test do
